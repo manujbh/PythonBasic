@@ -1,0 +1,67 @@
+#:kivy 1.0.9
+
+<RootContainer>:
+	id: theRoot
+	lbl1: my_labelC
+	lbl5: my_labelCS
+
+	BoxLayout:
+		orientation: 'vertical'
+		spacing: 20
+		padding: 20
+
+		canvas: 
+			Color: 
+				rgb: 0, .33, 0 
+			Rectangle: 
+				pos: self.pos 
+				size: self.size
+
+		Button:
+			text: "This is 1st button"
+			text_size: self.size
+			size_hint: (.5,1)
+			on_press: theRoot.clickAction1(self)
+
+		Button:
+			text: "This is 2nd button"
+			text_size: self.size
+			size_hint: (.5,1)
+			on_press: root.clickAction1(self)
+
+    GridLayout:
+		rows: 2
+		cols: 1
+		spacing: 10
+		padding: 10
+
+		canvas: 
+			Color: 
+				rgb: .7, .63, 0  
+			Rectangle: 
+				pos: self.pos 
+				size: self.size
+
+		Label:
+			id: my_labelC
+			canvas.before:
+				Color:
+					rgb: 0,0,0
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			text: "Header text for button clicked ......."
+			text_size: self.size
+		
+		ScrollView:
+			GridLayout:
+				cols:1
+				rows:1
+				height: self.minimum_height
+				Label:
+					id: my_labelCS
+					size_hint_x: 1
+					size_hint_y: None
+					text_size: self.width, None
+					height: self.texture_size[1]
+					text: "Scrolling text goes here ....."
