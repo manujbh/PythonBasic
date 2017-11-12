@@ -54,14 +54,17 @@
 			text_size: self.size
 		
 		ScrollView:
-			GridLayout:
-				cols:1
-				rows:1
-				height: self.minimum_height
-				Label:
-					id: my_labelCS
-					size_hint_x: 1
-					size_hint_y: None
-					text_size: self.width, None
-					height: self.texture_size[1]
-					text: "Scrolling text goes here ....."
+			bar_width: 12
+			bar_color: .6, .6, .6, .9
+			Label:
+				id: my_labelCS
+				size_hint: 1, None
+				text_size: self.width, None
+				height: self.texture_size[1]
+				text: "Scrolling text goes here ....."
+				canvas.before:
+					Color:
+						rgb: 0,0,0
+					Rectangle:
+						pos: self.pos
+						size: self.size
