@@ -24,9 +24,10 @@ class RootContainer(BoxLayout):
         self.lbl1.text = instance.text + " some text goes here ... "
         #self.lbl2.text = " this is scrolling text.\n " * 30
         self.lbl3.bind(minimum_height=self.lbl3.setter('height'))
+        self.lbl3.clear_widgets()
         x=0
         while x < 4:
-            self.lbl3.add_widget(Button(text="B0" + str(x)))
+            self.lbl3.add_widget(Button(text="B0 " + instance.text + " " + str(x)))
             x = x + 1
 
     
