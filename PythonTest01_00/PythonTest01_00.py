@@ -1,5 +1,3 @@
-
-
 import kivy
 import string
 from kivy.app import App
@@ -13,6 +11,8 @@ from kivy.properties import StringProperty
 from kivy.uix.scrollview import ScrollView
 from kivy.core.window import Window
 
+NUMBER_OF_BUTTONS = 5
+
 class RootContainer(BoxLayout):
     instance = ObjectProperty(None)
 
@@ -21,12 +21,14 @@ class RootContainer(BoxLayout):
 
     def clickAction1(self, instance):
         #identify the button pressed
-        buttonText = instance.text
-
-        
         self.lbl1.text = instance.text + " some text goes here ... "
-        myresult = " this is scrolling text.\n " * 30
-        self.lbl5.text = myresult
+        #self.lbl2.text = " this is scrolling text.\n " * 30
+        self.lbl3.bind(minimum_height=self.lbl3.setter('height'))
+        x=0
+        while x < 4:
+            self.lbl3.add_widget(Button(text="B0" + str(x)))
+            x = x + 1
+
     
 class MBApp(App):
     # this is a native function from Kivy to actually build the app using KV files
